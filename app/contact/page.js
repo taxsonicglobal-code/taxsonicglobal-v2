@@ -2,11 +2,6 @@
 
 import { useState } from "react";
 
-export const metadata = {
-  title: "Contact Us | TaxSonic Global",
-  description: "Contact TaxSonic Global for tax, GST, company registration and NRI services.",
-};
-
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
