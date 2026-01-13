@@ -7,7 +7,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="TaxSonic Global" className="h-10 w-auto" />
+          <Image
+  src="D:\WORK\taxsonicglobal-v2\public\logo.png"
+  alt="TaxSonic Global Logo"
+  width={160}
+  height={40}
+  priority
+/>
           <div className="leading-tight">
             <div className="font-bold text-slate-900">TaxSonic Global</div>
             <div className="text-xs text-slate-500">
