@@ -7,38 +7,32 @@ export default function SlideOverContact({ open, onClose }) {
   const [success, setSuccess] = useState(false);
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
+  setError("");
 
-    const form = e.target;
+  const formData = new FormData(e.target);
 
-    const payload = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      message: form.message.value,
-    };
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbzM53onehtT1d570_HNdo5iB5gAtV3gYdtwPK6vU0CiVf86Pg1TZFHnnJWEepzWqCg1/exec",
+      {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      }
+    );
 
-    try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbxZUMFQy4_KKbjVAqHKXDPobaBC8G-ds5u60xYkAlHPtacPaxc3Xo06HWfwuTj_xFxY0w/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      if (!res.ok) throw new Error();
-
-      setSuccess(true);
-      form.reset();
-    } catch {
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    setSuccess(true);
+    e.target.reset();
+  } catch (err) {
+    setError("Submission failed. Please try again.");
+    console.error(err);
   }
+
+  setLoading(false);
+}
+
 
   if (!open) return null;
 

@@ -17,36 +17,43 @@ export default function ContactSlideOver({ open, onClose }) {
   }, [onClose]);
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+  e.preventDefault();
+  setLoading(true);
+  setError("");
 
-    const formData = new FormData(e.target);
+  const form = e.target;
 
-    try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbyt2mwb0ZmtoZ3vPZ6hvc1sCTzV-JtJ6ERBSPJ8euExFFJMaR19eSf0OEfx2j-_jOBB6Q/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+  const payload = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    message: form.message.value,
+  };
 
-      const text = await res.text();
-
-      if (text.includes("SUCCESS")) {
-        setSuccess(true);
-        e.target.reset();
-      } else {
-        throw new Error(text);
+  try {
+    const res = await fetch(
+      "https://script.google.com/macros/s/AKfycbzM53onehtT1d570_HNdo5iB5gAtV3gYdtwPK6vU0CiVf86Pg1TZFHnnJWEepzWqCg1/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
       }
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
-      console.error(err);
+    );
+
+    const result = await res.json();
+
+    if (result.success) {
+      setSuccess(true);
+      form.reset();
+    } else {
+      throw new Error(result.error || "Submission failed");
     }
 
+  } catch (err) {
+    setError("Something went wrong. Please try again.");
+  } finally {
     setLoading(false);
   }
+}
 
   if (!open) return null;
 
