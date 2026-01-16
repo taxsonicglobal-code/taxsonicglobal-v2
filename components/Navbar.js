@@ -1,41 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import ContactSlideOver from "./ContactSlideOver";
+import SlideOverContact from "./SlideOverContact";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // Listen to global CTA events
+  useEffect(() => {
+    const openHandler = () => setOpen(true);
+    window.addEventListener("open-contact", openHandler);
+    return () => window.removeEventListener("open-contact", openHandler);
+  }, []);
+
   return (
     <>
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-slate-50/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          
-          {/* Logo + Brand */}
-          <Link href="/" className="group flex items-center gap-4">
+      <header className="sticky top-0 z-50 backdrop-blur bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+
+          {/* LOGO + BRAND */}
+          <Link href="/" className="flex items-center gap-4 group">
             <img
               src="/logo.png"
               alt="TaxSonic Global"
-              className="h-14 w-auto transition-transform duration-500 group-hover:scale-105"
+              className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
+
             <div className="leading-tight">
-              <div className="text-2xl font-extrabold tracking-tight text-slate-900">
+              <div className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
                 TaxSonic Global
               </div>
-              <div className="text-xs font-medium text-slate-500">
-                India • NRI • Global Clients
+              <div className="text-sm md:text-base text-slate-300">
+                India | NRI | Global Clients
               </div>
             </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <Link href="/services" className="text-slate-600 hover:text-slate-900">
+          {/* NAV LINKS */}
+          <nav className="hidden md:flex items-center gap-10 text-base font-semibold text-slate-200">
+            <Link
+              href="#services"
+              className="hover:text-emerald-400 transition"
+            >
               Services
             </Link>
-            <Link href="/about" className="text-slate-600 hover:text-slate-900">
+            <Link
+              href="/about"
+              className="hover:text-emerald-400 transition"
+            >
               About
             </Link>
           </nav>
@@ -43,15 +56,15 @@ export default function Navbar() {
           {/* CTA */}
           <button
             onClick={() => setOpen(true)}
-            className="rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-emerald-500 transition"
+            className="rounded-xl bg-emerald-500 px-6 py-3 font-bold text-black hover:bg-emerald-400 transition shadow-lg"
           >
-            Get Expert Help
+            Talk to an Expert
           </button>
         </div>
       </header>
 
-      {/* SLIDE-OVER CONTACT FORM */}
-      <ContactSlideOver open={open} onClose={() => setOpen(false)} />
+      {/* SLIDE-OVER FORM */}
+      <SlideOverContact open={open} onClose={() => setOpen(false)} />
     </>
   );
 }
