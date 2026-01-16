@@ -1,101 +1,135 @@
-import Link from "next/link";
+"use client";
 
-const WHATSAPP = "https://wa.me/918858118918";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-emerald-50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.15),transparent_40%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-24 text-center animate-fadeIn">
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-            Tax & Business Compliance <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-indigo-600 to-emerald-500 bg-clip-text text-transparent">
-              Made Simple & Global
-            </span>
-          </h1>
+    <main className="bg-slate-50">
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-            Helping startups, businesses, and NRIs manage registrations, GST,
-            taxation, and compliance with clarity and confidence.
-          </p>
+      {/* ================= HERO ================= */}
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid gap-12 md:grid-cols-2 items-center">
 
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={WHATSAPP}
-              className="rounded-xl bg-emerald-500 px-8 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:bg-emerald-400"
-            >
-              WhatsApp Consultation
-            </a>
+          {/* Left */}
+          <div>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              Tax & Compliance<br />
+              <span className="text-emerald-400">Handled Professionally</span>
+            </h1>
 
-            <Link
-              href="/services"
-              className="rounded-xl border border-slate-300 bg-white/70 px-8 py-3 font-semibold text-slate-700 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg"
-            >
-              Explore Services
-            </Link>
+            <p className="mt-6 text-lg text-slate-300">
+              Trusted tax, GST & business compliance services for
+              India, NRIs & global clients — delivered with clarity,
+              transparency and expert care.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <button
+                onClick={() => window.dispatchEvent(new Event("open-contact"))}
+                className="rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-black hover:bg-emerald-400 transition"
+              >
+                Talk to a Tax Expert
+              </button>
+
+              <Link
+                href="#services"
+                className="rounded-xl border border-white/30 px-8 py-4 font-semibold text-white hover:bg-white/10 transition"
+              >
+                View Services
+              </Link>
+            </div>
           </div>
+
+          {/* Right */}
+          <div className="rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10">
+            <ul className="space-y-4 text-slate-200">
+              <li>✔ CA-guided compliance</li>
+              <li>✔ Transparent pricing</li>
+              <li>✔ Fast WhatsApp & call support</li>
+              <li>✔ India & NRI specialization</li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-center text-3xl font-bold text-slate-900">
-            Our Services
-          </h2>
+      {/* ================= TRUST STRIP ================= */}
+      <section className="bg-white border-b">
+        <div className="mx-auto max-w-7xl px-6 py-6 grid gap-4 md:grid-cols-4 text-center text-sm text-slate-700">
+          <div>✔ Professional CA Support</div>
+          <div>✔ Clear & Fixed Pricing</div>
+          <div>✔ Secure Document Handling</div>
+          <div>✔ Trusted by Global Clients</div>
+        </div>
+      </section>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* ================= SERVICES ================= */}
+      <section id="services" className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+
+          <h2 className="text-3xl font-bold text-slate-900 text-center">
+            Our Core Services
+          </h2>
+          <p className="mt-3 text-center text-slate-600">
+            End-to-end tax & compliance solutions under one roof
+          </p>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
             {[
-              "GST Registration",
-              "Private Limited Company",
-              "LLP Registration",
-              "OPC Registration",
-              "Partnership Firm",
-              "Section 8 Company",
-              "Producer Company",
-              "Public Limited Company",
-              "FSSAI Registration & License",
-            ].map((service) => (
+              ["GST Registration", "Smooth GST registration & filing support"],
+              ["Income Tax Filing", "Accurate ITR filing with expert review"],
+              ["NRI Tax Services", "Specialized tax solutions for NRIs"],
+              ["Company Registration", "Private Ltd, LLP, OPC & more"],
+              ["FSSAI Registration", "Food license & compliance handled"],
+              ["Business Compliance", "Annual filings & regulatory support"],
+            ].map(([title, desc]) => (
               <div
-                key={service}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl"
+                key={title}
+                className="group cursor-pointer rounded-3xl bg-white p-8 shadow hover:shadow-xl transition border"
               >
-                <div className="mb-3 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-400" />
-                <h3 className="font-semibold text-slate-900 transition-colors duration-300 group-hover:text-indigo-600">
-                  {service}
+                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600">
+                  {title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">
-                  End-to-end professional handling with expert support.
+                <p className="mt-3 text-slate-600">
+                  {desc}
+                </p>
+                <p className="mt-5 font-medium text-emerald-600">
+                  Know more →
                 </p>
               </div>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 to-indigo-900 py-24 text-center text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(16,185,129,0.25),transparent_40%)]" />
-        <div className="relative animate-fadeIn">
-          <h2 className="text-3xl font-bold">
-            Talk to a Compliance Expert Today
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-300">
-            Clear guidance, transparent pricing, and fast turnaround.
+      {/* ================= MID CTA ================= */}
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto max-w-5xl px-6 py-20 text-center">
+          <h3 className="text-3xl font-bold">
+            Not sure which service you need?
+          </h3>
+          <p className="mt-4 text-slate-300">
+            Speak to an expert and get clear guidance in minutes.
           </p>
 
-          <div className="mt-8">
-            <a
-              href={WHATSAPP}
-              className="inline-block rounded-xl bg-emerald-400 px-10 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:bg-emerald-300"
-            >
-              Start WhatsApp Chat
-            </a>
-          </div>
+          <button
+            onClick={() => window.dispatchEvent(new Event("open-contact"))}
+            className="mt-8 rounded-xl bg-emerald-500 px-10 py-4 font-semibold text-black hover:bg-emerald-400 transition"
+          >
+            Get Expert Advice
+          </button>
         </div>
       </section>
+
+      {/* ================= FOOTER CTA ================= */}
+      <section className="bg-white py-16">
+        <p className="text-center text-sm text-slate-500">
+          🔒 Your information is 100% confidential • No spam • No sales pressure
+        </p>
+      </section>
+
     </main>
   );
 }
