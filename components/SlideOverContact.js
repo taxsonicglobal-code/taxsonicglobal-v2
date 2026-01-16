@@ -22,16 +22,11 @@ export default function SlideOverContact({ open, onClose }) {
     };
 
     try {
-      const res = await fetch(fetch("/api/contact")
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  }
-);
-
+      const res = await fetch("/api/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+});
 
       if (!res.ok) throw new Error("Network error");
 
