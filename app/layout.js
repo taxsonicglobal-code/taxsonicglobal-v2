@@ -1,7 +1,10 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+<meta
+  name="google-site-verification"
+  content="oBGIjwjQwuZ1Geg3CZfXVEUaEz0RaQOsrAqAYCOBr5c"
+/>
 export const metadata = {
   title: "TaxSonic Global | Tax & Business Services",
   description:
