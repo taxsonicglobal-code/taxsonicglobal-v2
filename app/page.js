@@ -6,42 +6,38 @@ export default function HomePage() {
   return (
     <main className="bg-slate-50">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 grid gap-12 md:grid-cols-2 items-center">
 
-          {/* Left */}
-          <div>
+          <div className="animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
               Tax & Compliance<br />
               <span className="text-emerald-400">Handled Professionally</span>
             </h1>
 
             <p className="mt-6 text-lg text-slate-300">
-              Trusted tax, GST & business compliance services for
-              India, NRIs & global clients — delivered with clarity,
-              transparency and expert care.
+              Trusted tax, GST & business compliance services for India, NRIs & global clients — delivered with clarity, transparency and expert care.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <button
                 onClick={() => window.dispatchEvent(new Event("open-contact"))}
-                className="rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-black hover:bg-emerald-400 transition"
+                className="rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-black hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
               >
                 Talk to a Tax Expert
               </button>
 
-              <Link
+              <a
                 href="#services"
-                className="rounded-xl border border-white/30 px-8 py-4 font-semibold text-white hover:bg-white/10 transition"
+                className="rounded-xl border border-white/30 px-8 py-4 font-semibold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-300"
               >
                 View Services
-              </Link>
+              </a>
             </div>
           </div>
 
-          {/* Right */}
-          <div className="rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10">
+          <div className="rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10 animate-fade-up">
             <ul className="space-y-4 text-slate-200">
               <li>✔ CA-guided compliance</li>
               <li>✔ Transparent pricing</li>
@@ -53,8 +49,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= TRUST STRIP ================= */}
-      <section className="bg-white border-b">
+      {/* TRUST STRIP */}
+      <section className="bg-white border-b animate-fade-in">
         <div className="mx-auto max-w-7xl px-6 py-6 grid gap-4 md:grid-cols-4 text-center text-sm text-slate-700">
           <div>✔ Professional CA Support</div>
           <div>✔ Clear & Fixed Pricing</div>
@@ -63,13 +59,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= SERVICES ================= */}
+      {/* SERVICES */}
       <section id="services" className="py-24">
         <div className="mx-auto max-w-7xl px-6">
 
           <h2 className="text-3xl font-bold text-slate-900 text-center">
             Our Core Services
           </h2>
+
           <p className="mt-3 text-center text-slate-600">
             End-to-end tax & compliance solutions under one roof
           </p>
@@ -86,9 +83,9 @@ export default function HomePage() {
             ].map(([title, desc]) => (
               <div
                 key={title}
-                className="group cursor-pointer rounded-3xl bg-white p-8 shadow hover:shadow-xl transition border"
+                className="group cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
-                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600">
+                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600 transition">
                   {title}
                 </h3>
                 <p className="mt-3 text-slate-600">
@@ -104,7 +101,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= MID CTA ================= */}
+      {/* MID CTA */}
       <section className="bg-slate-900 text-white">
         <div className="mx-auto max-w-5xl px-6 py-20 text-center">
           <h3 className="text-3xl font-bold">
@@ -116,14 +113,14 @@ export default function HomePage() {
 
           <button
             onClick={() => window.dispatchEvent(new Event("open-contact"))}
-            className="mt-8 rounded-xl bg-emerald-500 px-10 py-4 font-semibold text-black hover:bg-emerald-400 transition"
+            className="mt-8 rounded-xl bg-emerald-500 px-10 py-4 font-semibold text-black hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
           >
             Get Expert Advice
           </button>
         </div>
       </section>
 
-      {/* ================= FOOTER CTA ================= */}
+      {/* FOOTER NOTE */}
       <section className="bg-white py-16">
         <p className="text-center text-sm text-slate-500">
           🔒 Your information is 100% confidential • No spam • No sales pressure

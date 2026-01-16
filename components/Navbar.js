@@ -7,7 +7,7 @@ import SlideOverContact from "./SlideOverContact";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Listen to global CTA events
+  // Optional global CTA trigger
   useEffect(() => {
     const openHandler = () => setOpen(true);
     window.addEventListener("open-contact", openHandler);
@@ -16,54 +16,85 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 backdrop-blur bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <header className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
           {/* LOGO + BRAND */}
           <Link href="/" className="flex items-center gap-4 group">
             <img
               src="/logo.png"
               alt="TaxSonic Global"
-              className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-12 w-12 transition-transform duration-500 group-hover:rotate-[-6deg] group-hover:scale-110"
             />
 
             <div className="leading-tight">
-              <div className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+              <div className="text-2xl font-extrabold tracking-tight text-white">
                 TaxSonic Global
               </div>
-              <div className="text-sm md:text-base text-slate-300">
-                India | NRI | Global Clients
+              <div className="text-sm text-white/70">
+                India • NRI • Global Clients
               </div>
             </div>
           </Link>
 
           {/* NAV LINKS */}
           <nav className="hidden md:flex items-center gap-10 text-base font-semibold text-slate-200">
-            <Link
-              href="#services"
-              className="hover:text-emerald-400 transition"
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-emerald-400 transition"
-            >
+
+            {/* SERVICES DROPDOWN */}
+            <div className="relative group">
+              <span className="relative cursor-pointer text-lg font-semibold text-white/90 hover:text-white">
+                Services
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+              </span>
+
+              {/* Hover buffer */}
+              <div className="absolute left-0 top-full h-4 w-full"></div>
+
+              {/* Dropdown */}
+              <div className="absolute left-0 top-full mt-4 hidden w-64 rounded-2xl border border-slate-200 bg-white shadow-xl group-hover:block">
+                <div className="flex flex-col space-y-3 p-4 text-sm text-slate-700">
+
+                  <Link href="/services/company-registration" className="hover:text-emerald-600">
+                    Company Registration
+                  </Link>
+
+                  <Link href="/services/gst-registration" className="hover:text-emerald-600">
+                    GST Registration
+                  </Link>
+
+                  <Link href="/services/income-tax-filing" className="hover:text-emerald-600">
+                    Income Tax Filing
+                  </Link>
+
+                  <Link href="/services/nri-tax-services" className="hover:text-emerald-600">
+                    NRI Tax Services
+                  </Link>
+
+                  <Link href="/services/fssai-registration" className="hover:text-emerald-600">
+                    FSSAI Registration
+                  </Link>
+
+                </div>
+              </div>
+            </div>
+
+            <Link href="/about" className="hover:text-emerald-400 transition">
               About
             </Link>
           </nav>
 
-          {/* CTA */}
+          {/* CTA BUTTON */}
           <button
             onClick={() => setOpen(true)}
-            className="rounded-xl bg-emerald-500 px-6 py-3 font-bold text-black hover:bg-emerald-400 transition shadow-lg"
+            className="rounded-xl bg-emerald-500 px-6 py-3 text-base font-semibold text-black transition-all hover:bg-emerald-400 hover:scale-[1.03]"
           >
             Talk to an Expert
           </button>
+
         </div>
       </header>
 
-      {/* SLIDE-OVER FORM */}
+      {/* SLIDE-OVER CONTACT FORM */}
       <SlideOverContact open={open} onClose={() => setOpen(false)} />
     </>
   );

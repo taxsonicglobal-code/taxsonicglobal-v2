@@ -1,6 +1,6 @@
 "use client";
 
-export default function IncomeTaxFilingPage() {
+export default function GSTRegistrationPage() {
   return (
     <main className="bg-slate-50">
 
@@ -9,19 +9,20 @@ export default function IncomeTaxFilingPage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
 
           <h1 className="text-4xl md:text-5xl font-extrabold">
-            Income Tax Filing Services
+            GST Registration Services
           </h1>
 
           <p className="mt-4 max-w-3xl text-lg text-slate-300">
-            Accurate, hassle-free income tax return filing for individuals,
-            professionals, businesses, and NRIs — handled by experienced tax experts.
+            Get your GST registration done quickly and correctly with expert
+            support. We handle the entire process end-to-end so you can focus
+            on running your business.
           </p>
 
           <button
             onClick={() => window.dispatchEvent(new Event("open-contact"))}
             className="mt-8 rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-black hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
           >
-            Talk to a Tax Expert
+            Talk to a GST Expert
           </button>
 
         </div>
@@ -31,66 +32,70 @@ export default function IncomeTaxFilingPage() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-6 grid gap-12 md:grid-cols-3">
 
-          {/* LEFT */}
+          {/* LEFT CONTENT */}
           <div className="md:col-span-2">
 
             <h2 className="text-2xl font-bold text-slate-900">
-              Income Tax Filing — Made Simple
+              What is GST Registration?
             </h2>
 
             <p className="mt-4 text-slate-700">
-              Filing your income tax return correctly is essential to stay compliant,
-              avoid penalties, and claim eligible refunds. We ensure accurate filing
-              with maximum tax efficiency.
+              GST registration is mandatory for businesses whose turnover
+              exceeds the prescribed limit or who are engaged in interstate
+              supply, e-commerce, or certain notified services.
+            </p>
+
+            <p className="mt-3 text-slate-700">
+              Once registered, you receive a GSTIN which allows you to collect
+              tax, claim input tax credit, and comply with GST regulations.
             </p>
 
             <h3 className="mt-10 text-xl font-semibold text-slate-900">
-              Who Can Use This Service?
+              Our GST Registration Includes
             </h3>
 
             <ul className="mt-4 space-y-3 text-slate-700">
-              <li>✔ Salaried individuals</li>
-              <li>✔ Freelancers & professionals</li>
-              <li>✔ Business owners & firms</li>
-              <li>✔ NRIs with Indian income</li>
-              <li>✔ Individuals claiming tax refunds</li>
+              <li>✔ Consultation to determine GST applicability</li>
+              <li>✔ Document checklist & verification</li>
+              <li>✔ Application filing on GST portal</li>
+              <li>✔ ARN tracking & follow-ups</li>
+              <li>✔ GSTIN certificate delivery</li>
             </ul>
 
             <h3 className="mt-10 text-xl font-semibold text-slate-900">
-              What We Handle for You
+              Who Should Register for GST?
             </h3>
 
             <ul className="mt-4 space-y-3 text-slate-700">
-              <li>✔ Selection of correct ITR form</li>
-              <li>✔ Income computation & tax calculation</li>
-              <li>✔ Deductions & exemptions review</li>
-              <li>✔ Accurate return filing</li>
-              <li>✔ E-verification assistance</li>
-              <li>✔ Notice & refund support</li>
+              <li>✔ Businesses crossing turnover threshold</li>
+              <li>✔ E-commerce sellers</li>
+              <li>✔ Service providers</li>
+              <li>✔ Interstate suppliers</li>
+              <li>✔ Voluntary registrants</li>
             </ul>
 
           </div>
 
-          {/* PRICING */}
+          {/* PRICING CARD */}
           <div className="rounded-3xl bg-white p-8 shadow-xl border h-fit">
 
             <h3 className="text-xl font-bold text-slate-900">
-              Pricing (Starting From)
+              Pricing
             </h3>
 
             <div className="mt-4">
               <p className="text-4xl font-extrabold text-emerald-600">
-                ₹1,499
+                ₹4,499
               </p>
               <p className="text-sm text-slate-500">
-                Depends on income type & complexity
+                + Govt fees (if applicable)
               </p>
             </div>
 
-            <ul className="mt-6 space-y-3 text-sm text-slate-700">
-              <li>✔ Expert-reviewed filing</li>
-              <li>✔ Secure document handling</li>
-              <li>✔ Transparent pricing</li>
+            <ul className="mt-6 space-y-3 text-slate-700 text-sm">
+              <li>✔ End-to-end handling</li>
+              <li>✔ Expert assisted filing</li>
+              <li>✔ No hidden charges</li>
               <li>✔ WhatsApp & call support</li>
             </ul>
 
