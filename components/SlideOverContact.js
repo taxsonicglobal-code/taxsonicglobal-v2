@@ -23,7 +23,7 @@ export default function SlideOverContact({ open, onClose }) {
 
     try {
       const res = await fetch(
-        "PASTE_NEW_DEPLOYMENT_URL_HERE",
+        "https://script.google.com/macros/s/AKfycbzM53onehtT1d570_HNdo5iB5gAtV3gYdtwPK6vU0CiVf86Pg1TZFHnnJWEepzWqCg1/exec",
         {
           method: "POST",
           headers: {
