@@ -3,7 +3,7 @@ export async function POST(req) {
     const data = await req.json();
 
     const res = await fetch(
-      "https://script.google.com/macros/s/AKfycbwgQ8wQVIlTf9G2UodwRjQML2IwM16X0Y777gyqD_CQp_Uitlu8L-Shuqqk_S32M8mHAg/execE",
+      "https://script.google.com/macros/s/AKfycbwgQ8wQVIlTf9G2UodwRjQML2IwM16X0Y777gyqD_CQp_Uitlu8L-Shuqqk_S32M8mHAg/exec",
       {
         method: "POST",
         headers: {
@@ -15,7 +15,7 @@ export async function POST(req) {
 
     if (!res.ok) {
       return new Response(
-        JSON.stringify({ success: false }),
+        JSON.stringify({ success: false, error: "Apps Script error" }),
         { status: 500 }
       );
     }
@@ -25,9 +25,9 @@ export async function POST(req) {
       { status: 200 }
     );
 
-  } catch {
+  } catch (error) {
     return new Response(
-      JSON.stringify({ success: false }),
+      JSON.stringify({ success: false, error: error.message }),
       { status: 500 }
     );
   }
