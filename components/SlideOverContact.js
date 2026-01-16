@@ -23,15 +23,16 @@ export default function SlideOverContact({ open, onClose }) {
 
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzM53onehtT1d570_HNdo5iB5gAtV3gYdtwPK6vU0CiVf86Pg1TZFHnnJWEepzWqCg1/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+  "https://script.google.com/macros/s/AKfycbzM53onehtT1d570_HNdo5iB5gAtV3gYdtwPK6vU0CiVf86Pg1TZFHnnJWEepzWqCg1/exec",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  }
+);
+
 
       if (!res.ok) throw new Error("Network error");
 
