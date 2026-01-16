@@ -10,7 +10,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 grid gap-12 md:grid-cols-2 items-center">
 
-          <div className="animate-fade-up">
+          <div>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
               Tax & Compliance<br />
               <span className="text-emerald-400">Handled Professionally</span>
@@ -37,7 +37,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10 animate-fade-up">
+          <div className="rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10">
             <ul className="space-y-4 text-slate-200">
               <li>✔ CA-guided compliance</li>
               <li>✔ Transparent pricing</li>
@@ -50,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* TRUST STRIP */}
-      <section className="bg-white border-b animate-fade-in">
+      <section className="bg-white border-b">
         <div className="mx-auto max-w-7xl px-6 py-6 grid gap-4 md:grid-cols-4 text-center text-sm text-slate-700">
           <div>✔ Professional CA Support</div>
           <div>✔ Clear & Fixed Pricing</div>
@@ -73,29 +73,75 @@ export default function HomePage() {
 
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-            {[
-              ["GST Registration", "Smooth GST registration & filing support"],
-              ["Income Tax Filing", "Accurate ITR filing with expert review"],
-              ["NRI Tax Services", "Specialized tax solutions for NRIs"],
-              ["Company Registration", "Private Ltd, LLP, OPC & more"],
-              ["FSSAI Registration", "Food license & compliance handled"],
-              ["Business Compliance", "Annual filings & regulatory support"],
-            ].map(([title, desc]) => (
-              <div
-                key={title}
-                className="group cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600 transition">
-                  {title}
+            <Link href="/services/gst-services">
+              <div className="cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <h3 className="text-xl font-semibold text-slate-900 hover:text-emerald-600">
+                  GST Registration
                 </h3>
                 <p className="mt-3 text-slate-600">
-                  {desc}
+                  Smooth GST registration & filing support
                 </p>
                 <p className="mt-5 font-medium text-emerald-600">
                   Know more →
                 </p>
               </div>
-            ))}
+            </Link>
+
+            <Link href="/services/income-tax-filing">
+              <div className="cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <h3 className="text-xl font-semibold text-slate-900 hover:text-emerald-600">
+                  Income Tax Filing
+                </h3>
+                <p className="mt-3 text-slate-600">
+                  Accurate ITR filing with expert review
+                </p>
+                <p className="mt-5 font-medium text-emerald-600">
+                  Know more →
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/services/nri-tax-services">
+              <div className="cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <h3 className="text-xl font-semibold text-slate-900 hover:text-emerald-600">
+                  NRI Tax Services
+                </h3>
+                <p className="mt-3 text-slate-600">
+                  Specialized tax solutions for NRIs
+                </p>
+                <p className="mt-5 font-medium text-emerald-600">
+                  Know more →
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/services/company-registration">
+              <div className="cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <h3 className="text-xl font-semibold text-slate-900 hover:text-emerald-600">
+                  Company Registration
+                </h3>
+                <p className="mt-3 text-slate-600">
+                  Private Ltd, LLP, OPC & more
+                </p>
+                <p className="mt-5 font-medium text-emerald-600">
+                  Know more →
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/services/fssai-registration">
+              <div className="cursor-pointer rounded-3xl bg-white p-8 border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <h3 className="text-xl font-semibold text-slate-900 hover:text-emerald-600">
+                  FSSAI Registration
+                </h3>
+                <p className="mt-3 text-slate-600">
+                  Food license & compliance handled
+                </p>
+                <p className="mt-5 font-medium text-emerald-600">
+                  Know more →
+                </p>
+              </div>
+            </Link>
 
           </div>
         </div>
